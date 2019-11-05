@@ -51,6 +51,20 @@
 			return $this->rows;
 			
 		}
+
+		public function lista2() {
+			$this->query = "
+			SELECT y.title, x.name, m.last_update
+			FROM film_category as m
+			inner join film as y on (m.film_id=y.film_id) 
+			inner join category as x on (m.category_id=x.category_id)
+                 order by title
+			";
+			
+			$this->obtener_resultados_query();
+			return $this->rows;
+			
+		}
 		
 		public function nuevo($datos=array()) {
 			if(array_key_exists('film_id', $datos)):
@@ -62,7 +76,7 @@
 					INSERT INTO film_category
 					(film_id, category_id, last_update)
 					VALUES
-					(NULL, null,null)
+					('$film_id', '$category_id',null)
 					";
 				$resultado = $this->ejecutar_query_simple();
 				return $resultado;
@@ -76,7 +90,8 @@
 			$category_id= utf8_decode($category_id);
 			$this->query = "
 			UPDATE film_category
-			SET category_id='$category_id'
+			SET film_id='$film_id',
+			category_id='$category_id'
 			WHERE film_id = '$film_id'
 			";
 			$resultado = $this->ejecutar_query_simple();
@@ -86,7 +101,7 @@
 		public function borrar($film_id='') {
 			$this->query = "
 			DELETE FROM film_category
-			WHERE film_id = '$film_id'
+			WHERE film_id = '$film_id' 
 			";
 			$resultado = $this->ejecutar_query_simple();
 
