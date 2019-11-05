@@ -34,7 +34,7 @@
                  <th>Codigo</th>
 			        	 <th>Codigo_ca</th>
 				         <th>Actualizacion</th>
-                <!-- <th>Acciones</th>-->
+                 <th>Acciones</th>-->
                 </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@
                  <th>Codigo</th>
 			         	 <th>Codigo_ca</th>
 				         <th>Actualizacion</th>
-                <!-- <th>Acciones</th>-->
+                 <th>Acciones</th>-->
                 </tr>
                 </tfoot>
               </table>
