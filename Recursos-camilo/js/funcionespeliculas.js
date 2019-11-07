@@ -216,7 +216,7 @@ function peliculas(){
                   $("#title").val(peliculas.peliculas);
                   $("#description").val(peliculas.Descripcion);
                   $("#release_year").val(peliculas.Año_Estreno);
-                  $("#language_id").val(peliculas.Ori_codigo_idio);
+                  $("#original_language_id").val(peliculas.Ori_codigo_idio);
                   $("#rental_duration").val(peliculas.Duracion_alquiler);
                   $("#rental_rate").val(peliculas.Tasa_alquiler);
                   $("#length").val(peliculas.Longitud);
@@ -268,10 +268,10 @@ function peliculas(){
           dataType:"json"
       }).done(function( resultado ) {                      
           $.each(resultado.data, function (index, value) { 
-          if(peliculas === value.film_id){
-              $("#editar #film_id").append("<option selected value='" + value.special_features + "'>" + value.special_features + "</option>")
+          if(peliculas === value.special_features){
+              $("#editar #special_features").append("<option selected value='" + value.special_features + "'>" + value.special_features + "</option>")
           }else {
-              $("#editar #film_id").append("<option value='" + value.special_features + "'>" + value.special_features + "</option>")
+              $("#editar #special_features").append("<option value='" + value.special_features + "'>" + value.special_features + "</option>")
           }
           });
         });
