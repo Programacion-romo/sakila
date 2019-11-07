@@ -6,11 +6,11 @@
         <div class="panel-group"><div class="panel panel-primary">
             <div class="panel-heading">Datos</div>
             <div class="panel-body">    
-                <form class="form-horizontal" role="form"  id="fidiomas">
+                <form class="form-horizontal" role="form"  id="fpeliculas">
  					<div class="form-group">
-                        <label class="control-label col-sm-2" for="language_id">Codigo:</label>
+                        <label class="control-label col-sm-2" for="film_id">Codigo:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="language_id" name="language_id" placeholder="Ingrese Idioma"
+                            <input type="text" class="form-control" id="film_id" name="film_id" placeholder="Ingrese pelicula"
                             value = "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <div class="col-sm-10">
                             <select class="form-control" id="language_id" name="language_id">
                             <option value="" selected>Seleccione ...</option>
-								<?php foreach($listapeliculas as $fila){ ?>
+								<?php foreach($listaidiomas as $fila){ ?>
 								<option value="<?php echo trim($fila['language_id']); ?>" >
 								<?php echo utf8_encode(trim($fila['name'])); ?> </option>
 
@@ -95,18 +95,30 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="rating">Clasificacion:</label>
+                        <label class="control-label col-sm-2" for="film_id">Clasificacion:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="rating" name="rating" placeholder="Ingrese Clasificacion"
-                            value = "" >
+                            <select class="form-control" id="film_id" name="film_id">
+                            <option value="" selected>Seleccione ...</option>
+								<?php foreach($listapeliculas1 as $fila){ ?>
+								<option value="<?php echo trim($fila['film_id']); ?>" >
+								<?php echo utf8_encode(trim($fila['rating'])); ?> </option>
+
+								<?php } ?>
+							</select>	
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="special_features">Caract_especiales:</label>
+                        <label class="control-label col-sm-2" for="film_id">caracteristicas especiales:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="special_features" name="special_features" placeholder="Ingrese Caract_especiales"
-                            value = ""   data-validation="length alphanumeric" data-validation-length="3-12">
+                            <select class="form-control" id="film_id" name="film_id">
+                            <option value="" selected>Seleccione ...</option>
+								<?php foreach($listapeliculas2 as $fila){ ?>
+								<option value="<?php echo trim($fila['film_id']); ?>" >
+								<?php echo utf8_encode(trim($fila['special_features'])); ?> </option>
+
+								<?php } ?>
+							</select>	
                         </div>
                     </div>
 
