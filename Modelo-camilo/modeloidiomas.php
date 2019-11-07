@@ -49,10 +49,11 @@
 			return $this->rows;
 			
 		}
-	    public function listadepais() {
+	    public function listaidiomas() {
 		   $this->query = "
-		   SELECT depa_codi, depa_nomb
-		   FROM tb_departamento as d order by depa_nomb
+		   SELECT language_id, name, last_update
+			FROM language 
+			WHERE language_id  order by language_id
 		   ";
 		   $this->obtener_resultados_query();
 		   return $this->rows;

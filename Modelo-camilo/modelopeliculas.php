@@ -118,6 +118,28 @@
 			$this->obtener_resultados_query();
 			return $this->rows;
 		}
+		public function listapeliculas1() {
+			$this->query = "
+			SELECT film_id, title, description, release_year,
+				language_id, original_language_id, rental_duration,
+				rental_rate, length, replacement_cost, rating,
+				special_features, last_update
+				FROM film as c order by film_id
+			";
+			$this->obtener_resultados_query();
+			return $this->rows;
+		}
+		public function listapeliculas2() {
+			$this->query = "
+			SELECT film_id, title, description, release_year,
+				language_id, original_language_id, rental_duration,
+				rental_rate, length, replacement_cost, rating,
+				special_features, last_update
+				FROM film as c order by film_id
+			";
+			$this->obtener_resultados_query();
+			return $this->rows;
+		}
 		
 		public function nuevo($datos=array()) {
 			if(array_key_exists('film_id', $datos)):
@@ -161,13 +183,12 @@
 			description='$description',
 			release_year='$release_year',
 			language_id='$language_id',
-			original_language_id='$original_language_id',
+		
 			rental_duration='$rental_duration',
 			rental_rate='$rental_rate',
 			length='$length',
 			replacement_cost='$replacement_cost',
-			rating='$rating',
-			special_features='$special_features',
+			
 			last_update='$last_update'
 			WHERE film_id = '$film_id'
 			";
