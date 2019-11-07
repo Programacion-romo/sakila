@@ -191,6 +191,8 @@ function peliculas(){
      //Recupera datos del fromulario
      var codigo = $(this).data("codigo");
      var idiomas;
+     var peliculas;
+     var peliculas;
      $(".box-title").html("Actualizar peliculas")
      $("#editar").addClass('show');
      $("#editar").removeClass('hide');
@@ -214,15 +216,18 @@ function peliculas(){
                   $("#title").val(peliculas.peliculas);
                   $("#description").val(peliculas.Descripcion);
                   $("#release_year").val(peliculas.Año_Estreno);
-                  $("#original_language_id").val(peliculas.Ori_codigo_idio);
+                  $("#language_id").val(peliculas.Ori_codigo_idio);
                   $("#rental_duration").val(peliculas.Duracion_alquiler);
                   $("#rental_rate").val(peliculas.Tasa_alquiler);
                   $("#length").val(peliculas.Longitud);
                   $("#replacement_cost").val(peliculas.Costos_remp);
-                  $("#rating").val(peliculas.Clasificacion);
-                  $("#special_features").val(peliculas.Caract_especiales);
+                  //$("#rating").val(peliculas.Clasificacion);
+                 // $("#special_features").val(peliculas.Caract_especiales);
                   $("#last_update").val(peliculas.Actualizacion);
+                
                   idiomas = peliculas.idiomas;
+                  peliculas = peliculas.rating;
+                  peliculas = peliculas.special_features;
                   }
           });
 
@@ -239,6 +244,38 @@ function peliculas(){
                 $("#editar #language_id").append("<option value='" + value.language_id + "'>" + value.name + "</option>")
             }
             });
+    
+
+        $.ajax({
+          type:"get",
+          url:"./Controlador/controladorpeliculas.php",
+          data: {accion:'listar'},
+          dataType:"json"
+      }).done(function( resultado ) {                      
+          $.each(resultado.data, function (index, value) { 
+          if(peliculas === value.film_id){
+              $("#editar #film_id").append("<option selected value='" + value.film_id + "'>" + value.rating + "</option>")
+          }else {
+              $("#editar #film_id").append("<option value='" + value.film_id + "'>" + value.rating + "</option>")
+          }
+          });
+    
+
+        $.ajax({
+          type:"get",
+          url:"./Controlador/controladorpeliculas.php",
+          data: {accion:'listar'},
+          dataType:"json"
+      }).done(function( resultado ) {                      
+          $.each(resultado.data, function (index, value) { 
+          if(peliculas === value.film_id){
+              $("#editar #film_id").append("<option selected value='" + value.special_features + "'>" + value.special_features + "</option>")
+          }else {
+              $("#editar #film_id").append("<option value='" + value.special_features + "'>" + value.special_features + "</option>")
+          }
+          });
+        });
+    });
         });
     });
 })
