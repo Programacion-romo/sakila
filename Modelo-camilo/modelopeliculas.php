@@ -135,7 +135,7 @@
 				language_id, original_language_id, rental_duration,
 				rental_rate, length, replacement_cost, rating,
 				special_features, last_update
-				FROM film as c order by film_id
+				FROM film WHERE film_id  order by film_id
 			";
 			$this->obtener_resultados_query();
 			return $this->rows;
