@@ -51,7 +51,7 @@ switch ($_GET['accion']){
         }  else {
             $respuesta = array(
                 'codigo' => $peliculas->getFilm_id(),
-                'pelicula' => $peliculas->getname(),
+                'nombre' => $peliculas->getTitle(),
                 'descripcion' => $peliculas->getDescription(),
                 'Año_Estreno' => $peliculas->getRelease_year(),
                 'Codigo_idioma' => $peliculas->getLanguage_id(),
