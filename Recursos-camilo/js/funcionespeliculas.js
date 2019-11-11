@@ -226,8 +226,9 @@ function peliculas(){
                   $("#last_update").val(peliculas.Actualizacion);
                 
                   idiomas = peliculas.idiomas;
-                  peliculas = peliculas.rating;
-                  peliculas = peliculas.special_features;
+                  peliculas = peliculas.peliculas;
+                 // peliculas = peliculas.rating;
+                  
                   }
           });
 
@@ -268,10 +269,10 @@ function peliculas(){
           dataType:"json"
       }).done(function( resultado ) {                      
           $.each(resultado.data, function (index, value) { 
-          if(peliculas === value.special_features){
-              $("#editar #special_features").append("<option selected value='" + value.special_features + "'>" + value.special_features + "</option>")
+          if(peliculas === value.film_id){
+              $("#editar #film_id").append("<option selected value='" + value.film_id + "'>" + value.special_features + "</option>")
           }else {
-              $("#editar #special_features").append("<option value='" + value.special_features + "'>" + value.special_features + "</option>")
+              $("#editar #film_id").append("<option value='" + value.film_id + "'>" + value.special_features + "</option>")
           }
           });
         });
