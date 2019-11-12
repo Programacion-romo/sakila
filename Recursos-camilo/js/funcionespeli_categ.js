@@ -3,10 +3,11 @@ function peli_categ(){
     var dt = $("#tabla").DataTable({
             "ajax": "./Controlador/controladorpeli_categ.php?accion=listar",
             "columns": [
+              { "data": "film_id"} ,
               { "data": "title"} ,
               { "data": "name"} ,
               { "data": "last_update"} ,
-              { "data": "title",
+              { "data": "film_id",
               render: function (data) {
                         return '<a href="#" data-codigo="'+ data + 
                                '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>'
@@ -104,8 +105,8 @@ function peli_categ(){
     });
 
     $("#editar").on("click","button#actualizar",function(){
-         var datos=$("#fpeli_categ").serialize();
-         console.log(datos);
+      var datos=$("#fpeli_categ").serialize();
+        console.log(datos);
          $.ajax({
             type:"get",
             url:"./Controlador/controladorpeli_categ.php",
@@ -205,34 +206,38 @@ function peli_categ(){
        $("#editar").load("./Vistas/peli_Categ/editarpeli_Categ.php",function(){
             $.ajax({
                 type:"get",
-                url:"./Controlador/controladorpeli_Categ.php",
+                url:"./Controlador/controladorpeli_categ.php",
                 data: {codigo: codigo, accion:'consultar'},
                 dataType:"json"
-                }).done(function( peli_Categ ) {        
-                    if(peliculas.respuesta === "no existe"){
+                }).done(function( peli_categ ) {        
+                    if(peli_categ.respuesta === "no existe"){
                         swal({
                         type: 'error',
                         title: 'Oops...',
                         text: 'peli_categ no existe!'                         
                         })
                     } else {
-                        $("#last_update").val(peli_Categ.Actualizacion);
-                    }
-                  });
 
-                  $.ajax({
-                      type:"get",
-                      url:"./Controlador/controladorpeliculas.php",
-                      data: {accion:'listar'},
-                      dataType:"json"
-                  }).done(function( resultado ) {                      
-                      $.each(resultado.data, function (index, value) { 
-                      if(peliculas === value.film_id){
-                          $("#editar #").append("<option selected value='" + value.film_id + "'>" + value.title + "</option>")
-                      }else {
-                          $("#editar #film_id").append("<option value='" + value.film_id + "'>" + value.title + "</option>")
-                      }
-                      });
+                      $("#last_update").val(peli_Categ.Actualizacion);
+                        categorias = peli_Categ.categorias;
+                        peliculas = peli_Categ.codigo;
+
+                        
+                   }
+                  });
+                   $.ajax({
+                    type:"get",
+                    url:"./Controlador/controladorpeliculas.php",
+                    data: {accion:'listar'},
+                    dataType:"json"
+                }).done(function( resultado ) {                      
+                    $.each(resultado.data, function (index, value) { 
+                    if(peliculas === value.film_id){
+                        $("#editar #film_id").append("<option selected value='" + value.film_id + "'>" + value.title + "</option>")
+                    }else {
+                        $("#editar #film_id").append("<option value='" + value.film_id + "'>" + value.title + "</option>")
+                    }
+                    });
         
                       $.ajax({
                         type:"get",
@@ -251,7 +256,7 @@ function peli_categ(){
                     });
                   });
                 });
-        });
+              });
         }
         
                 
