@@ -50,7 +50,7 @@ switch ($_GET['accion']){
             );
         }  else {
             $respuesta = array(
-                'codigo' => $peli_categ->getLanguage_id(),
+                'codigo' => $peli_categ->getFilm_id(),
                 'category_id' => $peli_categ->getCategory_id(),
                 'last_update' =>$peli_categ->getLast_update(),
                 'respuesta' =>'existe'
