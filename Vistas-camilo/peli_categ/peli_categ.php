@@ -31,7 +31,8 @@
               <table id="tabla" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                 <th>Codigo</th>
+                <th>Codigo_p</th>
+                <th>Codigo</th>
 			        	 <th>Codigo_ca</th>
 				         <th>Actualizacion</th>
                  <th>Acciones</th>-->
@@ -42,7 +43,8 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                 <th>Codigo</th>
+                <th>Codigo_p</th>
+                <th>Codigo</th>
 			         	 <th>Codigo_ca</th>
 				         <th>Actualizacion</th>
                  <th>Acciones</th>-->

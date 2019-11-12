@@ -8,8 +8,16 @@
             <div class="panel-body">    
                 <form class="form-horizontal" role="form"  id="fpeli_categ">
 
+               <!--  <div class="form-group">
+                        <label class="control-label col-sm-2" for="film_id">Nombre:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="film_id" name="film_id" placeholder="pelicula"
+                            value = ""readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">
+                        </div>
+                    </div> -->
+
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="film_id">Peliculas:</label>
+                        <label class="control-label col-sm-2" for="film_id">Categorias:</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="film_id" name="film_id">
                             <option value="" selected>Seleccione ...</option>
@@ -21,6 +29,7 @@
 							</select>	
                         </div>
                     </div>
+
 					
 					
                     <div class="form-group">
@@ -28,7 +37,7 @@
                         <div class="col-sm-10">
                             <select class="form-control" id="category_id" name="category_id">
                             <option value="" selected>Seleccione ...</option>
-								<?php foreach($listapeliculas2 as $fila){ ?>
+								<?php foreach($lista2 as $fila){ ?>
 								<option value="<?php echo trim($fila['category_id']); ?>" >
 								<?php echo utf8_encode(trim($fila['categorias'])); ?> </option>
 
