@@ -25,7 +25,7 @@
 		public function consultar($film_id='') {
 			if($film_id !=''):
 				$this->query = "
-				SELECT film_id, category_id, last_update
+				SELECT film_id,category_id,last_update
 				FROM film_category
 				WHERE film_id = '$film_id' order by film_id
 				";
@@ -40,7 +40,7 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT y.title, x.name, m.last_update
+			SELECT m.film_id, y.title, x.name, m.last_update
 			FROM film_category as m
 			inner join film as y on (m.film_id=y.film_id) 
 			inner join category as x on (m.category_id=x.category_id)
@@ -54,7 +54,7 @@
 
 		public function lista2() {
 			$this->query = "
-			SELECT y.title, x.name, m.last_update
+			SELECT m.film_id,y.title, x.name, m.last_update
 			FROM film_category as m
 			inner join film as y on (m.film_id=y.film_id) 
 			inner join category as x on (m.category_id=x.category_id)
@@ -87,10 +87,9 @@
 			foreach ($datos as $campo=>$valor):
 				$$campo = $valor;
 			endforeach;
-			$category_id= utf8_decode($category_id);
 			$this->query = "
 			UPDATE film_category
-			SET film_id='$film_id',
+			SET 
 			category_id='$category_id'
 			WHERE film_id = '$film_id'
 			";
@@ -100,8 +99,8 @@
 		
 		public function borrar($film_id='') {
 			$this->query = "
-			DELETE FROM film_category
-			WHERE film_id = '$film_id' 
+			DELETE FROM film_category 
+			WHERE film_id = '$film_id'
 			";
 			$resultado = $this->ejecutar_query_simple();
 
