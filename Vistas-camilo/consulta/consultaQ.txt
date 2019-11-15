@@ -1,0 +1,12 @@
+
+CREATE TABLE `query` (
+  `film_id` int(7) NOT NULL,
+  `category_id` int(7) NOT NULL,
+  `store_id` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+insert into query (film_id,category_id,store_id) 
+SELECT m.film_id,m.category_id,x.store_id
+			FROM film_category as m
+			inner join inventory as x on (m.film_id=x.film_id)
+group by film_id;
