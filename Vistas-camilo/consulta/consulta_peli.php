@@ -32,7 +32,7 @@
                  <th>tienda</th> 
                  <th>direccion</th>
                  <th>ciudad</th>   
-                 <th>accion</th>      
+                     
                 </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@
                 <th>tienda</th>
                 <th>direccion</th>
                  <th>ciudad</th> 
-                <th>accion</th>
+                
                 </tr>
                 </tfoot>
               </table>
