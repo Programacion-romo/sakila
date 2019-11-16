@@ -9,17 +9,12 @@ function consulta(){
               { "data": "store_id"},
               { "data": "address"},
               { "data": "city"},
-              { "data": "film_id",
-              render: function (data) {
-                        return '<a href="#" data-codigo="'+ data + 
-                               '" class="btn btn-danger btn-sm borrar"> <i class="fa fa-trash"></i></a>'
-                        +      '<a href="#" data-codigo="'+ data + 
-                               '" class="btn btn-info btn-sm editar"> <i class="fa fa-edit"></i></a>'
-                              }
-                            } 
+              { "data": "film_id"} ,
+                            
               
             ]
     });
+   
     $("#editar").on("click",".btncerrar", function(){
         $(".box-title").html("Listado de peliculas categorias");
         $("#editar").addClass('hide');
