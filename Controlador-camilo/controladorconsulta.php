@@ -53,7 +53,7 @@ switch ($_GET['accion']){
             $respuesta = array(
                 'codigo' => $consulta->getFilm_id(),
                 'category_id' => $consulta->getCategory_id(),
-                'store_id' =>$consulta->getStore_id(),
+                'last_update' =>$consulta->getLast_update(),
                 'respuesta' =>'existe'
             );
         }
