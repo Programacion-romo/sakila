@@ -2,7 +2,7 @@
       
       <h1>
         consulta de
-        <small>  consulta</small>
+        <small>  peliculas</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -17,15 +17,6 @@
          <div class="box">
             <div class="box-header with-border">
               <h3 class="box-title">Listado de Columnas</h3>
-              <div class="box-tools pull-right">
-                  <button class="btn btn-info btn-sm" id="nuevo"  data-toggle="tooltip" 
-                      title="Nueva consulta"><i class="fa fa-plus" aria-hidden="true"></i></button> 
-              </div>
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-            </div>
            
         
             <!-- /.box-header -->
@@ -38,7 +29,9 @@
                  <th>codigo</th>
                  <th>pelicula</th>
 			           <th>categoria</th>
-                 <th>tienda</th>    
+                 <th>tienda</th> 
+                 <th>direccion</th>
+                 <th>ciudad</th>   
                  <th>accion</th>      
                 </tr>
                 </thead>
@@ -51,6 +44,8 @@
                 <th>pelicula</th>
 			          <th>categoria</th>
                 <th>tienda</th>
+                <th>direccion</th>
+                 <th>ciudad</th> 
                 <th>accion</th>
                 </tr>
                 </tfoot>
