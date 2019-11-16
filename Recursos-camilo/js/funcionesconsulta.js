@@ -6,7 +6,9 @@ function consulta(){
               { "data": "film_id"} ,
               { "data": "title"} ,
               { "data": "name"} ,
-              { "data": "store_id"}, 
+              { "data": "store_id"},
+              { "data": "address"},
+              { "data": "city"},
               { "data": "film_id",
               render: function (data) {
                         return '<a href="#" data-codigo="'+ data + 
