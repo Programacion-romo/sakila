@@ -4,7 +4,7 @@
     class consulta extends ModeloAbstractoDB {
 		private $film_id;
 		private $category_id;
-		private $store_id;
+		private $last_update;
 		
 		function __construct() {
 			//$this->db_category_id = '';
@@ -18,15 +18,15 @@
 			return $this->category_id;
 		}
 		
-		public function getStore_id(){
-			return $this->store_id;
+		public function getLast_update(){
+			return $this->last_update;
 		}
 
 		public function consultar($film_id='') {
 			if($film_id !=''):
 				$this->query = "
-				SELECT film_id, category_id, store_id
-				FROM query
+				SELECT film_id,category_id,last_update
+				FROM film_category
 				WHERE film_id = '$film_id' order by film_id
 				";
 				$this->obtener_resultados_query();
@@ -40,12 +40,16 @@
 		
 		public function lista() {
 			$this->query = "
-			SELECT m.film_id, y.title, x.name, i.store_id
-			FROM query as m
-			inner join film as y on (m.film_id=y.film_id) 
-            inner join category as x on (m.category_id=x.category_id)
-            inner join inventory as i on (m.film_id=i.film_id)
-                 order by title
+			
+SELECT m.film_id, y.title, x.name, i.store_id, j.address, h.city
+FROM film_category as m
+inner join film as y on (m.film_id=y.film_id) 
+inner join category as x on (m.category_id=x.category_id)
+inner join inventory as i on (m.film_id=i.film_id)
+inner join store as k on (i.store_id=k.store_id)
+inner join address as j on (k.address_id=j.address_id)
+inner join city as h on (j.city_id=h.city_id)
+	 order by title
 			";
 			
 			$this->obtener_resultados_query();
